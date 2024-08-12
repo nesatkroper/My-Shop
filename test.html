@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get Child Value from Clicked Button</title>
+  </head>
+  <body>
+    <button id="button1">
+      Click Me
+      <span class="child">Child 1</span>
+    </button>
+    <button id="button2">
+      Click Me Too
+      <span class="child">Child 2</span>
+    </button>
+    <p id="output"></p>
+
+    <script>
+      // Select all buttons
+      var buttons = document.querySelectorAll("button");
+      var output = document.getElementById("output");
+
+      // Add a click event listener to each button
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          // Find the child element within the clicked button
+          var child = this.querySelector(".child");
+
+          // Get the value of the child element
+          var childValue = child ? child.textContent : "No child found";
+
+          // Display the child value in the paragraph
+          output.textContent = "Clicked button's child value: " + childValue;
+        });
+      });
+    </script>
+  </body>
+</html>
